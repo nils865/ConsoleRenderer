@@ -1,2 +1,7 @@
 # ConsoleRenderer
-![image](https://user-images.githubusercontent.com/69861550/168758606-923e336c-f25e-407c-8b66-0a6561ff481f.png)
+
+A rendering engine to display 256x256 images in a console
+
+---
+
+- `loadAsset(filename)` loads an image from the `assets` folder and returns it as a multi dimensional Array with the color value of every pixel.
