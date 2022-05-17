@@ -8,5 +8,5 @@ setup(name='consolerenderer',
       author_email='nils.staas0806@gmail.com',
       license='MIT',
       packages=['consolerenderer'],
-      requires=['pillow'],
+      requires=['pillow', 'nilslib'],
       zip_safe=False)
