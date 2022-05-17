@@ -1,5 +1,7 @@
 from PIL import Image
 from os import path
+from nilslib import setTTYFgCol
+from sys import stdout
 
 def loadAsset(filename):
     list = []
@@ -15,3 +17,18 @@ def loadAsset(filename):
             list[i].append([r,g,b])
 
     return list
+
+def draw(game, assets):
+    def drawRow(row):
+        out = ""
+
+        for x in range(len(game[row])):
+            for i in assets[game[row][x]]:
+                for j in i:
+                    out += setTTYFgCol(j[0], j[1], j[2])
+                    out += "██"
+                out += "\n"
+        return out
+
+    for x in range(len(game)):
+        stdout.write(drawRow(x))
