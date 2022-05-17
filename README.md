@@ -1,2 +1,5 @@
 # ConsoleRenderer
-![image](https://user-images.githubusercontent.com/69861550/168758606-923e336c-f25e-407c-8b66-0a6561ff481f.png)
+
+---
+
+- `loadAsset(filename)` loads an image and returns it as a 2D Array with the color value of every pixel.
