@@ -1,3 +1,4 @@
+from time import perf_counter
 from PIL import Image
 from os import path
 from nilslib import setTTYFgCol, resetColor
@@ -21,17 +22,27 @@ def loadAsset(filename):
 def draw(game, assets):
     def drawRow(row):
         out = ""
+        count = 0
 
         for i in range(len(assets[game[0][0]])):
+            count += 1
             for x in game[row]:
                 for j in assets[x][i]:
                     out += setTTYFgCol(j[0], j[1], j[2])
                     out += "██"
+
             out += "\n"
 
-        return out
+            if not count < 15:
+                stdout.write(out)
+                out = ""
+                count = 0
+            elif not i < len(assets[game[0][0]]) - 1:
+                stdout.write(out)
+                out = ""
+                count = 0
 
     for x in range(len(game)):
-        stdout.write(f"{drawRow(x)}")
-    
+        drawRow(x)
+
     resetColor()
