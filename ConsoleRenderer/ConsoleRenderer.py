@@ -19,22 +19,23 @@ def loadAsset(filename):
 
     return list
 
+def generateRow(row, assets, game):
+    out = []
+
+    for i in range(len(assets[game[0][0]])):
+        out.append("")
+        for x in game[row]:
+            for j in assets[x][i]:
+                out[i] += setTTYFgCol(j[0], j[1], j[2])
+                out[i] += "██"
+
+    return out
+
 def draw(game, assets):
-    def drawRow(row):
-        out = []
-
-        for i in range(len(assets[game[0][0]])):
-            out.append("")
-            for x in game[row]:
-                for j in assets[x][i]:
-                    out[i] += setTTYFgCol(j[0], j[1], j[2])
-                    out[i] += "██"
-
-        return out
 
     out = []
     for x in range(len(game)):
-        out.append(drawRow(x))
+        out.append(generateRow(x, assets, game))
 
     str = ""
     count = 0
