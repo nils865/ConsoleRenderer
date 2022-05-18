@@ -25,9 +25,19 @@ def generateRow(row, assets, game):
     for i in range(len(assets[game[0][0]])):
         out.append("")
         for x in game[row]:
-            for j in assets[x][i]:
-                out[i] += setTTYFgCol(j[0], j[1], j[2])
-                out[i] += "██"
+            a = assets[x][i]
+            for j in range(len(a)):
+                if j > 0 and j < len(a):
+                    if a[j] == a[j - 1]:
+                        out[i] += "██"
+                        pass
+                    else:
+                        out[i] += setTTYFgCol(a[j][0], a[j][1], a[j][2])
+                        out[i] += "██"
+                else:
+                    out[i] += setTTYFgCol(a[j][0], a[j][1], a[j][2])
+                    out[i] += "██"
+                
 
     return out
 
