@@ -1,4 +1,3 @@
-from time import perf_counter
 from PIL import Image
 from os import path
 from nilslib import setTTYFgCol, resetColor
